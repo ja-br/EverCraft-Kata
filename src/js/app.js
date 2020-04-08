@@ -4,7 +4,10 @@ class EverCraftCharacter{
         this.alignment = alignment
         this.armorClass = 10
         this.hitPoints = 5
-        
+
     }
 
+     attack = () => {
+        return "attack"
+    }
 }

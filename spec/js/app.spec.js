@@ -17,5 +17,9 @@ describe('EverCraft Character', () => {
         it('should have 5 hit points', () => {
             expect(testCharacter.hitPoints).toBe(5)
         });
+        it('should be able to attack', () => {
+            expect(testCharacter.attack()).toBe("attack")
+            
+        });
     })
 });

@@ -31,13 +31,16 @@ describe('EverCraft Character', () => {
             expect(testCharacter.dealDamage(20)).toBe("Deal critical damage")
         });
         it('should have ability scores', () => {
-            expect(testCharacter.abilityScores.str).toBe(10)
-            expect(testCharacter.abilityScores.dex).toBe(10)
-            expect(testCharacter.abilityScores.con).toBe(10)
-            expect(testCharacter.abilityScores.int).toBe(10)
-            expect(testCharacter.abilityScores.wis).toBe(10)
-            expect(testCharacter.abilityScores.cha).toBe(10)
+            expect(testCharacter.abilityScores.str.score).toBe(10)
+            expect(testCharacter.abilityScores.dex.score).toBe(10)
+            expect(testCharacter.abilityScores.con.score).toBe(10)
+            expect(testCharacter.abilityScores.int.score).toBe(10)
+            expect(testCharacter.abilityScores.wis.score).toBe(10)
+            expect(testCharacter.abilityScores.cha.score).toBe(10)
 
+        });
+        it('should have a score modifier of 0 if the ability score is 10', () => {
+            expect(testCharacter.abilityScores.str.mod).toBe(0)
         });
     })
 });

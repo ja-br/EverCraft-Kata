@@ -6,21 +6,42 @@ class EverCraftCharacter {
 
 
     constructor(name, alignment) {
+        let strScore = 10
+        let dexScore = 10
+        let conScore = 10
+        let wisScore = 10
+        let intScore = 10
+        let chaScore = 10
         this.name = name
         this.alignment = alignment
         this.armorClass = 10
         this.hitPoints = 5
         this.abilityScores = {
-            str: 10,
-            dex: 10,
-            con: 10,
-            wis: 10,
-            int: 10,
-            cha: 10
+            str: {
+                score: strScore,
+                mod: this.getAbilityModifier(strScore)
+            },
+            dex: {
+                score: dexScore,
+                mod: this.getAbilityModifier(dexScore)
+            },
+            con: {
+                score: strScore,
+                mod: this.getAbilityModifier(conScore)
+            },
+            wis: {
+                score: strScore,
+                mod: this.getAbilityModifier(wisScore)
+            },
+            int: {
+                score: strScore,
+                mod: this.getAbilityModifier(intScore)
+            },
+            cha: {
+                score: strScore,
+                mod: this.getAbilityModifier(chaScore)
+            },
         }
-
-
-
 
     }
 
@@ -46,7 +67,14 @@ class EverCraftCharacter {
 
     }
 
+    getAbilityModifier = (score) => {
+        switch (score) {
+            case 10:
+                return 0
+                break
+        }
 
+    }
 
 
 

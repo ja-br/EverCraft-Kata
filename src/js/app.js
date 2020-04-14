@@ -10,15 +10,16 @@ class EverCraftCharacter {
         this.alignment = alignment
         this.armorClass = 10
         this.hitPoints = 5
-        this.str = 10
-        this.dex = 10
-        this.con = 10
-        this.wis = 10
-        this.int = 10
-        this.cha = 10
-        this.strMod = getStrMod
-        this.dexMod = getDexMod
-        this.conMod = getConMod
+        this.abilityScores = {
+            str: 10,
+            dex: 10,
+            con: 10,
+            wis: 10,
+            int: 10,
+            cha: 10
+        }
+
+
 
 
     }

@@ -32,15 +32,17 @@ describe('EverCraft Character', () => {
         });
         it('should have ability scores', () => {
             expect(testCharacter.abilityScores.str.score).toBe(10)
-            expect(testCharacter.abilityScores.dex.score).toBe(10)
-            expect(testCharacter.abilityScores.con.score).toBe(10)
-            expect(testCharacter.abilityScores.int.score).toBe(10)
-            expect(testCharacter.abilityScores.wis.score).toBe(10)
-            expect(testCharacter.abilityScores.cha.score).toBe(10)
+
 
         });
         it('should have a score modifier of 0 if the ability score is 10', () => {
             expect(testCharacter.abilityScores.str.mod).toBe(0)
+        });
+        it('should have a modifier of -5 if the score is 1', () => {
+            expect(testCharacter.abilityScores.dex.mod).toBe(-5)
+        });
+        it('should have a modifier of 3 if the score is 17', () => {
+            expect(testCharacter.abilityScores.con.mod).toBe(3)
         });
     })
 });

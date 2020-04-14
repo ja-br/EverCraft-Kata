@@ -6,7 +6,7 @@ class EverCraftCharacter {
 
 
     constructor(name, alignment) {
-        let strScore = 10
+        let strScore = 14
         let dexScore = 1
         let conScore = 17
         let wisScore = 10
@@ -46,7 +46,7 @@ class EverCraftCharacter {
     }
 
     attack = (dieRoll) => {
-        if (dieRoll > 10) {
+        if (dieRoll + this.abilityScores.str.mod > 10) {
             this.dealDamage()
             return "Hit!"
         } else {

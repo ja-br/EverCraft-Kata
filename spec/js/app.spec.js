@@ -27,8 +27,16 @@ describe('EverCraft Character', () => {
         it('should deal damage when it hits', () => {
             expect(testCharacter.dealDamage(10)).toBe("Deal 1 damage")
         });
-        it('should eal critical damage if it rolls a 20', () => {
+        it('should deal critical damage if it rolls a 20', () => {
             expect(testCharacter.dealDamage(20)).toBe("Deal critical damage")
+        });
+        it('should have ability scores', () => {
+            expect(testCharacter.str).toBe(10)
+            expect(testCharacter.dex).toBe(10)
+            expect(testCharacter.con).toBe(10)
+            expect(testCharacter.int).toBe(10)
+            expect(testCharacter.wis).toBe(10)
+            expect(testCharacter.cha).toBe(10)
 
         });
     })

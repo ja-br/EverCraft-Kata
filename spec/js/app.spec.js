@@ -2,7 +2,7 @@ describe('EverCraft Character', () => {
 
     beforeEach(() => {
 
-        testCharacter = new EverCraftCharacter("Tom", "evil")
+        testCharacter = new PlayerCharacter("Tom", "evil")
     })
     describe('Character Core', () => {
         it('should have a name', () => {

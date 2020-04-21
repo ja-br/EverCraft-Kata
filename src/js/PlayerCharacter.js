@@ -7,13 +7,6 @@ class PlayerCharacter {
 
   constructor(name, alignment) {
 
-    // let strScore = 14
-    // let dexScore = 16
-    // let conScore = 17
-    // let wisScore = 10
-    // let intScore = 10
-    // let chaScore = 10
-
     this.name = name
     this.alignment = alignment
     this.armorClass = 10
@@ -48,7 +41,6 @@ class PlayerCharacter {
   }
 
 
-
   attack = (dieRoll) => {
     if (dieRoll + this.abilityScores.str.mod > 10) {
       this.dealDamage()
@@ -71,7 +63,13 @@ class PlayerCharacter {
 
   }
 
+  getArmorClass = () => {
+    return this.armorClass + this.getAbilityMod("dex")
+  }
 
+  getHitPoints = () => {
+    return this.hitPoints + this.getAbilityMod("con")
+  }
 
   setAbilityMod = (ability) => {
 

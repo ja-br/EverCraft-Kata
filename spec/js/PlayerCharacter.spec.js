@@ -18,8 +18,8 @@ describe('EverCraft Character', () => {
             expect(testCharacter.alignment).toBe("evil")
         });
 
-        it('should have an armor class of 10', () => {
-            expect(testCharacter.armorClass).toBe(10)
+        it('should have an armor class of 10 + dex mod', () => {
+            expect(testCharacter.getArmorClass()).toBe(13)
         });
 
         it('should have 5 hit points', () => {
@@ -62,5 +62,8 @@ describe('EverCraft Character', () => {
         it('should add strength modifier to attack roll', () => {
             expect(testCharacter.attack(9)).toBe("Hit!")
         });
+        it("should add con mod to hitpoints", () => {
+            expect(testCharacter.getHitPoints()).toBe(8)
+        })
     })
 });

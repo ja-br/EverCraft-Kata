@@ -6,44 +6,48 @@ class PlayerCharacter {
 
 
   constructor(name, alignment) {
-    let strScore = 14
-    let dexScore = 1
-    let conScore = 17
-    let wisScore = 10
-    let intScore = 10
-    let chaScore = 10
+
+    // let strScore = 14
+    // let dexScore = 16
+    // let conScore = 17
+    // let wisScore = 10
+    // let intScore = 10
+    // let chaScore = 10
+
     this.name = name
     this.alignment = alignment
     this.armorClass = 10
     this.hitPoints = 5
     this.abilityScores = {
       str: {
-        score: strScore,
-        mod: this.getAbilityModifier(strScore)
+        score: 10,
+        mod: 0
       },
       dex: {
-        score: dexScore,
-        mod: this.getAbilityModifier(dexScore)
+        score: 10,
+        mod: 0
       },
       con: {
-        score: strScore,
-        mod: this.getAbilityModifier(conScore)
+        score: 10,
+        mod: 0
       },
       wis: {
-        score: strScore,
-        mod: this.getAbilityModifier(wisScore)
+        score: 10,
+        mod: 0
       },
       int: {
-        score: strScore,
-        mod: this.getAbilityModifier(intScore)
+        score: 10,
+        mod: 0
       },
       cha: {
-        score: strScore,
-        mod: this.getAbilityModifier(chaScore)
+        score: 10,
+        mod: 0
       },
     }
 
   }
+
+
 
   attack = (dieRoll) => {
     if (dieRoll + this.abilityScores.str.mod > 10) {
@@ -56,71 +60,91 @@ class PlayerCharacter {
 
   dealDamage = (dieRoll) => {
     if (dieRoll == 20) {
-      return "Deal critical damage"
+      return `Deal ${(this.abilityScores.str.mod + 1) * 2} damage`
     } else {
-      return "Deal 1 damage"
+      return `Deal ${this.abilityScores.str.mod + 1} damage`
     }
   }
 
   takeDamage = (damage) => {
-    this.hitPoints - damage
+    this.hitPoints -= damage
 
   }
 
-  getAbilityModifier = (score) => {
-    switch (score) {
+
+
+  setAbilityMod = (ability) => {
+
+    switch (this.abilityScores[ability].score) {
       case 1:
-        return -5
+        this.abilityScores[ability].mod = -5
         break
       case 2:
       case 3:
-        return -4
+        this.abilityScores[ability].mod = -4
         break
       case 4:
       case 5:
-        return -3
+        this.abilityScores[ability].mod = -3
         break
       case 6:
       case 7:
-        return -2
+        this.abilityScores[ability].mod = -2
         break
       case 8:
       case 9:
-        return -1
+        this.abilityScores[ability].mod = -1
         break
       case 10:
       case 11:
-        return 0
+        this.abilityScores[ability].mod = 0
         break
       case 12:
       case 13:
-        return 1
+        this.abilityScores[ability].mod = 1
         break
       case 14:
       case 15:
-        return 2
+        this.abilityScores[ability].mod = 2
         break
       case 16:
       case 17:
-        return 3
+        this.abilityScores[ability].mod = 3
         break
       case 18:
       case 19:
-        return 4
+        this.abilityScores[ability].mod = 4
         break
       case 20:
       case 21:
-        return 5
+        this.abilityScores[ability].mod = 5
         break
       case 22:
       case 23:
-        return 6
+        this.abilityScores[ability].mod = 6
         break
     }
 
   }
 
+  getAbilityMod = (ability) => {
+    return this.abilityScores[ability].mod
+  }
 
+  getAbilityScore = (ability) => {
+    return this.abilityScores[ability].score
+  }
+
+  increaseAbilityScore = (ability, amount) => {
+    this.abilityScores[ability].score += amount
+    this.setAbilityMod(ability)
+  }
+
+  decreaseAbilityScore = (ability, amount) => {
+    this.abilityScores[ability].score -= amount
+    this.setAbilityMod(ability)
+
+  }
 
 
 }
